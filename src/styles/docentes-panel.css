@@ -1,0 +1,29 @@
+.mesage {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: rgb(44, 44, 44);
+}
+
+.error-carga {
+    background-color: rgb(245, 186, 186);
+    text-align: center;
+    padding: 30px;
+    font-size: large;
+}
+
+.img-docente-list {
+    width: 175px;
+}
+
+.file-docente {
+    margin-bottom: 15px;
+}
+
+.informacion-docente p {
+    white-space: pre-line;
+    white-space: pre-wrap;
+}
+
+.informacion-docente {
+    padding-bottom: 10px;
+}

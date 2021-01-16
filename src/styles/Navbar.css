@@ -1,0 +1,41 @@
+.logo {
+    margin: 5px;
+    height: 70px;
+    width: auto;
+}
+
+.navbar1 {
+    background: rgb(185, 185, 186);
+    background: linear-gradient(90deg, rgba(185, 185, 186, 1) 0%, rgba(230, 230, 238, 1) 55%, rgba(194, 199, 200, 1) 100%);
+}
+
+.iniciar-sesion {
+    padding-top: 30px;
+    text-align: center;
+    color: rgb(40, 95, 197);
+}
+
+.iniciar-sesion i {
+    font-size: large;
+}
+
+.cerrar-sesion {
+    padding-top: 30px;
+    text-align: center;
+    color: rgb(233, 39, 39);
+}
+
+.cerrar-sesion i {
+    font-size: large;
+    color: rgb(233, 39, 39);
+}
+
+.cerrar-sesion label {
+    color: rgb(233, 39, 39);
+}
+
+.titulo {
+    text-align: center;
+    padding-top: 10px;
+    color: rgb(2, 112, 163);
+}
