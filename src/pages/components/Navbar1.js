@@ -23,6 +23,8 @@ class Navbar1 extends React.Component {
                     </Link>
                 </div>
             );
+        } else {
+            return;
         }
     }
 

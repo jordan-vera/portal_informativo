@@ -1,0 +1,85 @@
+.testimonial-group2 {
+    position: relative !important;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 10px;
+}
+
+.testimonial-group2>.row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow: scroll;
+    overflow: hidden;
+}
+
+.testimonial-group2>.row>.col-12 {
+    flex: 0 0 auto;
+}
+
+.btn-izquierda {
+    position: absolute;
+}
+
+.btn-izquierda {
+    left: 0px;
+    top: 100px;
+}
+
+.btn-izquierda button {
+    padding: 10px;
+    font-size: 20px;
+}
+
+.btn-izquierda button:hover {
+    padding: 10px;
+    font-size: 23px;
+    background-color: rgb(218, 216, 216);
+}
+
+.btn-derecha {
+    position: absolute;
+    right: 0px;
+    top: 100px;
+}
+
+.btn-derecha button {
+    padding: 10px;
+    font-size: 20px;
+}
+
+.btn-derecha button:hover {
+    padding: 10px;
+    font-size: 23px;
+    background-color: rgb(218, 216, 216);
+}
+
+.image-noticia {
+    width: 100% !important;
+    height: auto;
+}
+
+.destacado {
+    padding-bottom: 5px;
+    color: rgb(40, 95, 197);
+}
+
+.descripcion-noticia {
+    white-space: pre-line;
+    white-space: pre-wrap;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.descripcion-noticia {
+    position: relative;
+}
+
+.btn-voz {
+    position: absolute;
+    top: 1px;
+    right: 5px;
+}

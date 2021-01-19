@@ -15,22 +15,22 @@ async function callApi(endpoint, options = {}) {
     return data;
 }
 
-const apiDocente = {
-    docente: {
+const apiVideo = {
+    video: {
 
         allshow() {
-            return callApi(`/docentes`);
+            return callApi(`/videos`);
         },
 
-        create(docente) {
-            return callApi(`/docente`, {
+        create(video) {
+            return callApi(`/video`, {
                 method: 'POST',
-                body: JSON.stringify(docente),
+                body: JSON.stringify(video),
             });
         },
 
         remove(id) {
-            return callApi(`/docente/${id}`, {
+            return callApi(`/video/${id}`, {
                 method: 'DELETE',
             });
         },
@@ -48,4 +48,4 @@ const apiDocente = {
     },
 };
 
-export default apiDocente;
+export default apiVideo;

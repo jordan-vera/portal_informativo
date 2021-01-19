@@ -1,0 +1,30 @@
+
+.imagen-upload img {
+    width: 100%;
+    height: auto;
+}
+
+#file-upload-imagen3 {
+    display: none;
+}
+
+.subir-image {
+    margin-top: 3px;
+    padding: 5px 10px;
+    color: #fff;
+    border: 0px solid #fff;
+    border: solid gray 2px;
+    border-style: dashed;
+    width: 100%;
+    height: auto;
+}
+
+.lbl {
+    margin-top: 18px;
+}
+
+.cont-btn {
+    padding-top: 20px;
+    text-align: right;
+    padding-bottom: 15px;
+}

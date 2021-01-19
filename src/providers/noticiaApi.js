@@ -15,22 +15,30 @@ async function callApi(endpoint, options = {}) {
     return data;
 }
 
-const apiDocente = {
-    docente: {
+const apiNoticia = {
+    noticia: {
 
         allshow() {
-            return callApi(`/docentes`);
+            return callApi(`/noticias`);
+        },
+
+        getByTipo(tipo) {
+            return callApi(`/noticia-tipo/${tipo}`);
+        },
+
+        findNoticia(idnoticia) {
+            return callApi(`/noticia-id/${idnoticia}`);
         },
 
         create(docente) {
-            return callApi(`/docente`, {
+            return callApi(`/noticia`, {
                 method: 'POST',
                 body: JSON.stringify(docente),
             });
         },
 
         remove(id) {
-            return callApi(`/docente/${id}`, {
+            return callApi(`/noticia/${id}`, {
                 method: 'DELETE',
             });
         },
@@ -48,4 +56,4 @@ const apiDocente = {
     },
 };
 
-export default apiDocente;
+export default apiNoticia;

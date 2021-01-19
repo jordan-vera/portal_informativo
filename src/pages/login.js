@@ -47,13 +47,13 @@ class Login extends React.Component {
         } else if (this.state.error) {
             return (
                 <div className="error rounded">
-                    <i class="fas fa-times"></i> Upss se ha producido un error, intenta mas tarde!!
+                    <i className="fas fa-times"></i> Upss se ha producido un error, intenta mas tarde!!
                 </div>
             );
         } else if (this.state.credencialesIncorrectas) {
             return (
                 <div className="error rounded">
-                    <i class="fas fa-times"></i> Tus credenciales son incorrectas!!
+                    <i className="fas fa-times"></i> Tus credenciales son incorrectas!!
                 </div>
             );
         } else {

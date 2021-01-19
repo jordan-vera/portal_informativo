@@ -14,7 +14,7 @@ class PanelAdmin extends React.Component {
 
     constructor(props, context) {
         super(props, context);
-        this.state.idusuario = new URLSearchParams(this.props.location.search).get("iduser")
+        this.state.idusuario = new URLSearchParams(this.props.location.search).get("iduser");
     }
 
 

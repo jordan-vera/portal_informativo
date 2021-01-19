@@ -17,33 +17,21 @@ async function callApi(endpoint, options = {}) {
 
 const apiUsuario = {
     usuarios: {
-        
-        login(usuario, clave){
+
+        login(usuario, clave) {
             return callApi(`/login/${usuario}/${clave}`);
         },
 
-        /*
-
-        create(cliente) {
-            return callApi(`/clientes`, {
-                method: 'POST',
-                body: JSON.stringify(cliente),
-            });
+        findUser(idusuario) {
+            return callApi(`/user/${idusuario}`);
         },
 
-        update(badgeId, updates) {
-            return callApi(`/badges/${badgeId}`, {
+        updateUser(idusuario, usuario) {
+            return callApi(`/users/${idusuario}`, {
                 method: 'PUT',
-                body: JSON.stringify(updates),
+                body: JSON.stringify(usuario),
             });
         },
-        // Lo hubiera llamado `delete`, pero `delete` es un keyword en JavaScript asi que no es buena idea :P
-        remove(id) {
-            return callApi(`/clientes/${id}`, {
-                method: 'DELETE',
-            });
-        },
-        */
     },
 };
 

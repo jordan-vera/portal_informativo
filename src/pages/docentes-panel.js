@@ -24,7 +24,7 @@ class DocentesPanel extends React.Component {
             },
             loadingShow: false,
             errorShow: false,
-            docentes: []
+            docentes: [],
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -95,7 +95,8 @@ class DocentesPanel extends React.Component {
         try {
             await apiDocente.docente.create(docente);
             this.limpiar();
-            ToastsStore.success(<div className="mesage"> <i class="fas fa-check"></i> Docente agregado correctamente!! </div>);
+            this.getAllDocentes();
+            ToastsStore.success(<div className="mesage"> <i className="fas fa-check"></i> Docente agregado correctamente!! </div>);
         } catch (error) {
             ToastsStore.error("Ups!! ha ocurrido un problema, intenta más tarde.");
         }
@@ -142,6 +143,16 @@ class DocentesPanel extends React.Component {
         }
     }
 
+    async eliminarDocente(id) {
+        try {
+            await apiDocente.docente.remove(id);
+            this.getAllDocentes();
+            ToastsStore.success(<div className="mesage"> <i className="fas fa-check"></i> Docente eliminado correctamente!! </div>);
+        } catch (error) {
+            ToastsStore.error("Ups!! ha ocurrido un problema, intenta más tarde.");
+        }
+    }
+
     render() {
         return (
             <React.Fragment>
@@ -150,6 +161,10 @@ class DocentesPanel extends React.Component {
                 <ToastsContainer store={ToastsStore} />
 
                 <div className="lista-usuarios">
+                    <div className="text-center">
+                        <h5>Lista de docentes</h5>
+                    </div>
+                    <br />
                     {this.spinner()}
                     {this.error()}
                     <div className="container">
@@ -169,20 +184,21 @@ class DocentesPanel extends React.Component {
                                                     <small>{docente.email}</small>
                                                 </div>
                                                 <div className="col-lg-6 text-end">
-                                                    <button className="btn btn-outline-danger"><i class="far fa-trash-alt"></i></button>
+                                                    <button className="btn btn-outline-info btn-sm me-2">
+                                                        <i className="fas fa-edit"></i>
+                                                    </button>
+                                                    <button className="btn btn-outline-danger btn-sm" onClick={() => this.eliminarDocente(docente.iddocente)}>
+                                                        <i className="far fa-trash-alt"></i>
+                                                    </button>
                                                 </div>
                                             </div>
-                                            
                                         </div>
                                     </div>
                                 );
                             })
                         }
-
                     </div>
                 </div>
-
-
             </React.Fragment>
         );
     }

@@ -35,7 +35,7 @@ class NewDocente extends React.Component {
                                 <div className="row">
                                     <div className="col-lg-7">
                                         <label>Nombres</label>
-                                        <input onChange={this.props.onChange} className="form-control" type="text" name="nombres" value={this.props.values.form.nombres} />
+                                        <input onChange={this.props.onChange} className="form-control" type="text" name="nombres" value={this.props.values.form.nombres} required />
                                     </div>
                                     <div className="col-lg-5">
                                         <label>Email</label>
@@ -44,7 +44,7 @@ class NewDocente extends React.Component {
                                 </div>
 
                                 <label className="lbl">Formación académica</label>
-                                <textarea onChange={this.props.onChange} className="form-control" name="formacion_academica" value={this.props.values.form.formacion_academica} ></textarea>
+                                <textarea onChange={this.props.onChange} className="form-control" name="formacion_academica" value={this.props.values.form.formacion_academica} required ></textarea>
 
                                 <label className="lbl">Experiencia laboral</label>
                                 <textarea onChange={this.props.onChange} className="form-control" name="experiencia_laboral" value={this.props.values.form.experiencia_laboral}></textarea>
