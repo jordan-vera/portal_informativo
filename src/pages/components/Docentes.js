@@ -74,9 +74,8 @@ class Docentes extends React.Component {
                                 </label>
                                 <br />
                                 <label>{docente.email}</label>
-                                <button className="btn btn-outline-primary btn-sm">
-                                    Más información...
-                                </button>
+                                <br></br>
+                                <Link to={"/docente?iddocente=" + docente.iddocente}>Más información..</Link>
                             </div>
                         );
                     })

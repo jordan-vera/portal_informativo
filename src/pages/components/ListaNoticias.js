@@ -2,13 +2,15 @@ import React from 'react';
 import Global from '../../providers/urlGlobal';
 import apiNoticia from '../../providers/noticiaApi';
 import "../../styles/ListaNoticias.css";
+import { Link } from 'react-router-dom';
 
 class ListaNoticias extends React.Component {
 
     state = {
         noticias: [],
         error: false,
-        loading: false
+        loading: false,
+        search: null
     }
 
     getAllNoticias = async () => {
@@ -63,7 +65,7 @@ class ListaNoticias extends React.Component {
 
         let mensaje = new SpeechSynthesisUtterance();
         mensaje.voice = vocesDisponibles[0];
-        mensaje.volume =1;
+        mensaje.volume = 1;
         mensaje.rate = 0.6;
         mensaje.text = texto;
         mensaje.pitch = 1;
@@ -71,8 +73,43 @@ class ListaNoticias extends React.Component {
         speechSynthesis.speak(mensaje);
     }
 
+    searchSpace = (event) => {
+        let keyword = event.target.value;
+        this.setState({ search: keyword })
+    }
 
     render() {
+        const items = this.state.noticias.filter((noticia) => {
+            if (this.state.search == null) {
+                return noticia;
+            } else if (noticia.titulo.toLowerCase().includes(this.state.search.toLowerCase())) {
+                return noticia;
+            }
+        }).map(noticia => {
+            return (
+                <div className="row border-bottom mb-3 pb-2" key={noticia.idnoticia}>
+                    <div className="col-lg-3">
+                        <img src={Global.UrlGlobal.urlArchivos + noticia.portada_url} className="image-noticia" />
+                    </div>
+                    <div className="col-lg-8 col-descripcion">
+                        <h5><Link to={"/noticia?idnoticia=" + noticia.idnoticia}>{noticia.titulo}</Link></h5>
+
+                        <p className="descripcion-noticia">{noticia.descripcion}</p>
+                        Fecha: {this.trasformarFecha(noticia.created_at)}
+                    </div>
+                    <div className="col-lg-1 col-descripcion">
+                        <button className="btn btn-sm btn-info" onClick={
+                            () => {
+                                let texto = noticia.titulo + ' ' + noticia.descripcion
+                                this.generarVoz(texto)
+                            }
+                        }>
+                            <i className="fas fa-volume-up"></i>
+                        </button>
+                    </div>
+                </div>
+            );
+        })
         return (
             <React.Fragment>
                 <div className="container mt-2">
@@ -80,7 +117,7 @@ class ListaNoticias extends React.Component {
                         <div className="col-lg-3"></div>
                         <div className="col-lg-8">
                             <div className="input-group">
-                                <input type="text" className="form-control" placeholder="Buscar" />
+                                <input type="text" className="form-control" placeholder="Buscar" onChange={(e) => this.searchSpace(e)} />
                                 <button className="btn btn-outline-secondary" type="button" >
                                     <i className="fas fa-search"></i>
                                 </button>
@@ -88,35 +125,8 @@ class ListaNoticias extends React.Component {
                         </div>
                         <div className="col-lg-1"></div>
                     </div>
-
                     <br />
-
-                    {
-                        this.state.noticias.map((noticia) => {
-                            return (
-                                <div className="row border-bottom mb-3 pb-2" key={noticia.idnoticia}>
-                                    <div className="col-lg-3">
-                                        <img src={Global.UrlGlobal.urlArchivos + noticia.portada_url} className="image-noticia" />
-                                    </div>
-                                    <div className="col-lg-8 col-descripcion">
-                                        <h5>{noticia.titulo}</h5>
-                                        <p className="descripcion-noticia">{noticia.descripcion}</p>
-                                        Fecha: {this.trasformarFecha(noticia.created_at)}
-                                    </div>
-                                    <div className="col-lg-1 col-descripcion">
-                                        <button className="btn btn-sm btn-info" onClick={
-                                            ()=>{
-                                                let texto = noticia.titulo + ' ' + noticia.descripcion
-                                                this.generarVoz(texto)
-                                            } 
-                                            }>
-                                            <i className="fas fa-volume-up"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            );
-                        })
-                    }
+                    {items}
                 </div>
             </React.Fragment>
         );

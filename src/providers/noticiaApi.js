@@ -43,16 +43,12 @@ const apiNoticia = {
             });
         },
 
-        /*
-        update(badgeId, updates) {
-            return callApi(`/badges/${badgeId}`, {
+        updates(idnoticia, noticia, anterior) {
+            return callApi(`/noticia/${idnoticia}/${anterior}`, {
                 method: 'PUT',
-                body: JSON.stringify(updates),
+                body: JSON.stringify(noticia),
             });
         },
-        // Lo hubiera llamado `delete`, pero `delete` es un keyword en JavaScript asi que no es buena idea :P
-        
-        */
     },
 };
 

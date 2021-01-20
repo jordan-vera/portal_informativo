@@ -69,7 +69,7 @@ class Destacado extends React.Component {
                                             <div className="col-lg-6">
                                                 <img src={Global.UrlGlobal.urlArchivos + noticia.portada_url} className="image-noticia" />
                                             </div>
-                                            <div className="col-lg-6 descripcion-noticia">
+                                            <div className="col-lg-6 descripcion-noticias">
                                                 <h5>
                                                     <Link to={"/noticia?idnoticia=" + noticia.idnoticia}>{noticia.titulo}</Link>
                                                 </h5>

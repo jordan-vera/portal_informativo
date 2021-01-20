@@ -5,6 +5,7 @@ import Docente from "./../modelo/Docente";
 import apiDocente from "../providers/docenteApi";
 import { ToastsContainer, ToastsStore } from 'react-toasts';
 import "../styles/docentes-panel.css";
+import { Link } from 'react-router-dom';
 
 class DocentesPanel extends React.Component {
 
@@ -25,11 +26,14 @@ class DocentesPanel extends React.Component {
             loadingShow: false,
             errorShow: false,
             docentes: [],
+            idusuario: 0
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.seleccionarImagen1 = this.seleccionarImagen1.bind(this);
+        this.state.idusuario = new URLSearchParams(this.props.location.search).get("iduser");
     }
+
 
     limpiar = () => {
         this.setState({
@@ -184,9 +188,10 @@ class DocentesPanel extends React.Component {
                                                     <small>{docente.email}</small>
                                                 </div>
                                                 <div className="col-lg-6 text-end">
-                                                    <button className="btn btn-outline-info btn-sm me-2">
+                                                    <Link className="btn btn-outline-info btn-sm me-2" to={"/edit-docente?iduser=" + this.state.idusuario + "&iddocente="+ docente.iddocente}>
                                                         <i className="fas fa-edit"></i>
-                                                    </button>
+                                                    </Link>
+
                                                     <button className="btn btn-outline-danger btn-sm" onClick={() => this.eliminarDocente(docente.iddocente)}>
                                                         <i className="far fa-trash-alt"></i>
                                                     </button>

@@ -29,22 +29,23 @@ const apiDocente = {
             });
         },
 
+        findDocente(iddocente) {
+            return callApi(`/docente-id/${iddocente}`);
+        },
+
         remove(id) {
             return callApi(`/docente/${id}`, {
                 method: 'DELETE',
             });
         },
 
-        /*
-        update(badgeId, updates) {
-            return callApi(`/badges/${badgeId}`, {
+        updates(iddocente, docente, anterior) {
+            return callApi(`/docente/${iddocente}/${anterior}`, {
                 method: 'PUT',
-                body: JSON.stringify(updates),
+                body: JSON.stringify(docente),
             });
         },
-        // Lo hubiera llamado `delete`, pero `delete` es un keyword en JavaScript asi que no es buena idea :P
-        
-        */
+
     },
 };
 

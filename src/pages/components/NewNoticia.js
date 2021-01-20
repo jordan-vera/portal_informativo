@@ -16,12 +16,12 @@ class NewNoticia extends React.Component {
         return (
             <React.Fragment>
                 <div className="container border-bottom">
-                    <h5><i className="fas fa-user-plus"></i> Agregar Docentes de informática</h5>
+                    <h5><i className="fas fa-user-plus"></i> Agregar Noticias</h5>
                     <br />
                     <form onSubmit={this.props.onSubmit} >
                         <div className="row">
                             <div className="col-lg-3">
-                                <small>Foto de perfil:</small>
+                                <small>Portada de noticia:</small>
                                 <label htmlFor="file-upload-imagen3" className="subir-image">
                                     <div className="imagen-upload">
                                         {this.imagenUpload()}

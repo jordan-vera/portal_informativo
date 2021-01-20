@@ -4,6 +4,8 @@ import NoticiasPanel from './noticias-panel';
 import VideosPanel from './videos-panel';
 import DocentesPanel from './docentes-panel';
 import MicuentaPanel from './micuenta-panel';
+import EditNoticia from './components/EditNoticia';
+import EditDocente from './components/EditDocente';
 import { Link, Route, Switch, BrowserRouter } from 'react-router-dom';
 
 class PanelAdmin extends React.Component {
@@ -51,6 +53,8 @@ class PanelAdmin extends React.Component {
                                             <Route exact path="/videos" component={VideosPanel} />
                                             <Route exact path="/docentes" component={DocentesPanel} />
                                             <Route exact path="/perfil" component={MicuentaPanel} />
+                                            <Route exact path="/edit-noticia" component={EditNoticia} />
+                                            <Route exact path="/edit-docente" component={EditDocente} />
                                         </Switch>
                                     </div>
                                 </div>

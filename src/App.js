@@ -3,6 +3,7 @@ import Index from "./pages/index";
 import Login from "./pages/login";
 import Panel from "./pages/panel-admin";
 import NoticiaShow from "./pages/NoticiaShow";
+import DocenteShow from "./pages/DocenteShow";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/panel-admin" component={Panel} />
         <Route exact path="/noticia" component={NoticiaShow} />
+        <Route exact path="/docente" component={DocenteShow} />
       </Switch>
     </BrowserRouter>
   );

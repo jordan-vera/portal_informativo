@@ -1,36 +1,32 @@
 import React from 'react';
 import Navbar1 from './components/Navbar1';
-import apiNoticia from '../providers/noticiaApi';
+import apiDocente from '../providers/docenteApi';
 import Global from '../providers/urlGlobal';
-import "../styles/NoticiaShow.css"
 import { Link } from 'react-router-dom';
 
-class NoticiaShow extends React.Component {
+class DocenteShow extends React.Component {
     state = {
-        idusuario: 0,
+        iddocente: 0,
         loading: false,
         error: false,
-        noticia: {}
+        docente: {}
     }
-
     constructor(props, context) {
         super(props, context);
-        this.state.idusuario = new URLSearchParams(this.props.location.search).get("idnoticia");
+        this.state.iddocente = new URLSearchParams(this.props.location.search).get("iddocente");
     }
-
-    getNoticia = async () => {
+    getDocente = async () => {
         this.setState({ loading: true });
         try {
-            const data = await apiNoticia.noticia.findNoticia(this.state.idusuario);
-            console.log(data)
-            this.setState({ loading: false, error: false, noticia: data });
+            const data = await apiDocente.docente.findDocente(this.state.iddocente);
+            this.setState({ loading: false, error: false, docente: data });
         } catch (error) {
             this.setState({ loading: false, error: true });
         }
     }
 
     componentDidMount() {
-        this.getNoticia();
+        this.getDocente();
     }
 
     spinner = () => {
@@ -79,7 +75,6 @@ class NoticiaShow extends React.Component {
             <React.Fragment>
                 <Navbar1 />
 
-
                 <div className="container">
                     <div className="breadcrumb-login ps-4">
                         <nav aria-label="breadcrumb">
@@ -89,28 +84,29 @@ class NoticiaShow extends React.Component {
                                         <i className="fas fa-home"></i> Home
                                     </Link>
                                 </li>
-                                <li className="breadcrumb-item active" aria-current="page">Noticia</li>
+                                <li className="breadcrumb-item active" aria-current="page">Docente</li>
                             </ol>
                         </nav>
                     </div>
                     {this.spinner()}
                     {this.error()}
-                    <div className="contenedor-image ">
-                        <img src={Global.UrlGlobal.urlArchivos + this.state.noticia.portada_url} className="image-noticia-show" />
 
-
-                    </div>
-
-
-
-                    <div className="row justify-content-center">
-                        <div className="col-lg-9 descripcion border-top">
-                            <h4 className="mt-4">{this.state.noticia.titulo}s</h4>
-                            <p className="texto">{this.state.noticia.descripcion}</p>
-
+                    <div className="row mt-4">
+                        <div className="col-lg-5 descripcion">
+                            <div className="contenedor-image ">
+                                <img src={Global.UrlGlobal.urlArchivos + this.state.docente.foto} className="image-docente-show" />
+                            </div>
+                        </div>
+                        <div className="col-lg-7 descripcion">
+                            <h4>{this.state.docente.nombres}</h4>
+                            <p>{this.state.docente.email}</p>
+                            <b>Formación académica</b>
+                            <p>{this.state.docente.formacion_academica}</p>
+                            <b>Cargos</b>
+                            <p>{this.state.docente.experiencia_laboral}</p>
                             <button className="btn btn-sm btn-info btn-voz" onClick={
                                 () => {
-                                    let texto = this.state.noticia.titulo + ' ' + this.state.noticia.descripcion
+                                    let texto = 'Docente ' + this.state.docente.nombres + 'Formación académica ' + this.state.docente.formacion_academica + ' Cargos ' + this.state.docente.experiencia_laboral;
                                     this.generarVoz(texto)
                                 }
                             }>
@@ -126,4 +122,4 @@ class NoticiaShow extends React.Component {
     }
 }
 
-export default NoticiaShow;
+export default DocenteShow;

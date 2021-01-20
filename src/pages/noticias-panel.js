@@ -5,6 +5,7 @@ import apiNoticia from "./../providers/noticiaApi";
 import Noticia from "../modelo/Noticia";
 import { ToastsContainer, ToastsStore } from 'react-toasts';
 import "../styles/noticias-panel.css";
+import { Link } from 'react-router-dom';
 
 class NoticiasPanel extends React.Component {
     state = {
@@ -21,7 +22,13 @@ class NoticiasPanel extends React.Component {
         noticias: [],
         loading: false,
         error: false,
+        idusuario: 0
     };
+
+    constructor(props, context) {
+        super(props, context);
+        this.state.idusuario = new URLSearchParams(this.props.location.search).get("iduser");
+    }
 
     limpiar = () => {
         this.setState({
@@ -170,9 +177,12 @@ class NoticiasPanel extends React.Component {
                                             <h5>{noticia.titulo} - {noticia.tipo_noticia}</h5>
                                             <p>{noticia.descripcion}</p>
                                             <div className="text-end">
-                                                <button className="btn btn-sm btn-outline-danger" onClick={()=> this.eliminarNoticia(noticia.idnoticia)}>
+                                                <button className="btn btn-sm btn-outline-danger" onClick={() => this.eliminarNoticia(noticia.idnoticia)}>
                                                     <i className="far fa-trash-alt"></i>
                                                 </button>
+                                                <Link to={'/edit-noticia?iduser=' + this.state.idusuario + "&idnoticia="+ noticia.idnoticia} className="btn btn-outline-info btn-sm ms-3">
+                                                    <i className="far fa-edit"></i>
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>
