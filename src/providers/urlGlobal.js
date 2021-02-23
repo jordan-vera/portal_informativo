@@ -1,6 +1,6 @@
 const UrlGlobal = {
-    urlApi: "http://localhost/portal_informatico_utc/public/api",
-    urlArchivos: "http://localhost/archivosPortal/"
+    urlApi: "https://pis-utc.com/portal_informatico_utc/public/api",
+    urlArchivos: "https://pis-utc.com/archivosPortal/"
 }
 
 function uuidv4() {

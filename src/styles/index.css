@@ -1,3 +1,13 @@
 .cuerpo {
     margin-top: 15px;
 }
+
+@media only screen and (max-width: 990px) {
+    .cuerpo {
+        padding: 2px !important;
+        margin-top: 0px;
+    }
+    .container-index {
+        padding: 0px;
+    }
+}

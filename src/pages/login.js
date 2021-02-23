@@ -75,7 +75,7 @@ class Login extends React.Component {
         return (
             <React.Fragment>
                 <Navbar1 estado='login' />
-                <div className="container">
+                <div className="container ">
                     <div className="breadcrumb-login">
                         <nav aria-label="breadcrumb">
                             <ol className="breadcrumb">
@@ -95,8 +95,8 @@ class Login extends React.Component {
                         </div>
                     </div>
 
-                    <div className="row justify-content-center">
-                        <div className="col-lg-3">
+                    <div className="row justify-content-center ">
+                        <div className="col-lg-3 ">
                             <div className="formulario">
                                 <h5><i className="far fa-user"></i> Ingresar al sistema</h5>
 

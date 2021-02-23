@@ -1,5 +1,4 @@
 .logo {
-    margin: 5px;
     height: 70px;
     width: auto;
 }
@@ -13,10 +12,20 @@
     padding-top: 30px;
     text-align: center;
     color: rgb(40, 95, 197);
+    cursor: pointer;
+}
+
+.btn-iniciar {
+    cursor: pointer;
+}
+
+.btn-iniciar label {
+    cursor: pointer;
 }
 
 .iniciar-sesion i {
     font-size: large;
+    
 }
 
 .cerrar-sesion {
@@ -38,4 +47,39 @@
     text-align: center;
     padding-top: 10px;
     color: rgb(2, 112, 163);
+}
+
+.titulo h4 {
+    font-size: 23px;
+    margin-bottom: 0px;
+}
+
+.logoUtc {
+    max-width: 100%;
+    height: auto;
+}
+
+.col-logosistema {
+    text-align: center;
+    padding: 5px;
+}
+
+.col-logoutc {
+    padding-left: 0px;
+    padding-top: 10px;
+}
+
+@media only screen and (max-width: 990px) {
+    .titulo {
+        padding-top: 0px;
+        padding-bottom: 10px;
+    }
+    .titulo h4 {
+        font-size: 19px;
+    }
+    .iniciar-sesion {
+        padding-top: 5px;
+        text-align: right;
+        padding-bottom: 10px;
+    }
 }

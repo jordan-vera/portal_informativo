@@ -1,6 +1,5 @@
 import React from 'react';
 import apiVideo from '../../providers/videoApi';
-import "../../styles/Videos.css";
 
 class Videos extends React.Component {
 
@@ -64,24 +63,29 @@ class Videos extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <h5>Videos</h5>
+                <div className="card">
+                    <div className="card-header destacado">
+                        <h5><i className="fab fa-youtube"></i> Más noticias</h5>
+                    </div>
+                    <div className="card-body">
+                        {this.spinner()}
+                        {this.error()}
 
-                {this.spinner()}
-                {this.error()}
-
-                {
-                    this.state.videos.map((video) => {
-                        return (
-                            <div className="videos border-bottom" key={video.idvideo}>
-                                <iframe width="235" height="170" src={this.transformarUrl(video.video_url)} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-                                <div>
-                                    {video.titulo}
-                                </div>
-                                <p>{video.descripcion}</p>
-                            </div>
-                        );
-                    })
-                }
+                        {
+                            this.state.videos.map((video) => {
+                                return (
+                                    <div className="border-bottom" key={video.idvideo}>
+                                        <iframe width="225" height="170" src={this.transformarUrl(video.video_url)} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                                        <small>
+                                            {video.titulo}
+                                        </small>
+                                        <small>{video.descripcion}</small>
+                                    </div>
+                                );
+                            })
+                        }
+                    </div>
+                </div>
             </React.Fragment>
         );
     }

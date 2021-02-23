@@ -112,21 +112,18 @@ class ListaNoticias extends React.Component {
         })
         return (
             <React.Fragment>
-                <div className="container mt-2">
-                    <div className="row border-bottom pb-2">
-                        <div className="col-lg-3"></div>
-                        <div className="col-lg-8">
-                            <div className="input-group">
-                                <input type="text" className="form-control" placeholder="Buscar" onChange={(e) => this.searchSpace(e)} />
-                                <button className="btn btn-outline-secondary" type="button" >
-                                    <i className="fas fa-search"></i>
-                                </button>
-                            </div>
+                <div className="card mt-3">
+                    <div className="card-header">
+                        <div className="input-group">
+                            <input type="text" className="form-control" placeholder="Buscar noticias" onChange={(e) => this.searchSpace(e)} />
+                            <button className="btn btn-outline-secondary" type="button" >
+                                <i className="fas fa-search"></i>
+                            </button>
                         </div>
-                        <div className="col-lg-1"></div>
                     </div>
-                    <br />
-                    {items}
+                    <div className="card-body">
+                        {items}
+                    </div>
                 </div>
             </React.Fragment>
         );

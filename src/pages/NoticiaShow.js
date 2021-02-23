@@ -80,7 +80,7 @@ class NoticiaShow extends React.Component {
                 <Navbar1 />
 
 
-                <div className="container">
+                <div className="container containerNoticia-show bg-white">
                     <div className="breadcrumb-login ps-4">
                         <nav aria-label="breadcrumb">
                             <ol className="breadcrumb">
@@ -105,7 +105,7 @@ class NoticiaShow extends React.Component {
 
                     <div className="row justify-content-center">
                         <div className="col-lg-9 descripcion border-top">
-                            <h4 className="mt-4">{this.state.noticia.titulo}s</h4>
+                            <h4 className="mt-5">{this.state.noticia.titulo}</h4>
                             <p className="texto">{this.state.noticia.descripcion}</p>
 
                             <button className="btn btn-sm btn-info btn-voz" onClick={

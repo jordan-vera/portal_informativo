@@ -56,30 +56,36 @@ class Docentes extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <h5>
-                    Docentes
-                </h5>
-                {this.spinner()}
-                {this.error()}
+                <div className="card">
+                    <div className="card-header destacado">
+                        <h5>
+                            <i className="fas fa-users"></i> Docentes
+                        </h5>
+                    </div>
+                    <div className="card-body">
+                        {this.spinner()}
+                        {this.error()}
 
-                {
-                    this.state.docentes.map((docente) => {
-                        return (
-                            <div className="docente border-bottom" key={docente.iddocente}>
-                                <div >
-                                    <img src={Global.UrlGlobal.urlArchivos + docente.foto} className="image-docente" />
-                                </div>
-                                <label>
-                                    {docente.nombres}
-                                </label>
-                                <br />
-                                <label>{docente.email}</label>
-                                <br></br>
-                                <Link to={"/docente?iddocente=" + docente.iddocente}>Más información..</Link>
-                            </div>
-                        );
-                    })
-                }
+                        {
+                            this.state.docentes.map((docente) => {
+                                return (
+                                    <div className="docente border-bottom" key={docente.iddocente}>
+                                        <div >
+                                            <img src={Global.UrlGlobal.urlArchivos + docente.foto} className="image-docente" />
+                                        </div>
+                                        <label>
+                                            {docente.nombres}
+                                        </label>
+                                        <br />
+                                        <label>{docente.email}</label>
+                                        <br></br>
+                                        <Link to={"/docente?iddocente=" + docente.iddocente}>Más información..</Link>
+                                    </div>
+                                );
+                            })
+                        }
+                    </div>
+                </div>
             </React.Fragment>
         );
     }

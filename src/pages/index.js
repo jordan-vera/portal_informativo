@@ -13,11 +13,11 @@ class Index extends React.Component {
                 <Navbar1 estado='normal' />
 
                 <div className="container cuerpo">
-                    <div className="card">
-                        <div className="card-body">
-                            <div className="container">
+                    <div className="card container-index">
+                        <div className="card-body container-index">
+                            <div className="container container-index">
                                 <div className="row">
-                                    <div className="col-lg-9 border-end p-3">
+                                    <div className="col-lg-9 ">
 
                                         <Destacado />
 
